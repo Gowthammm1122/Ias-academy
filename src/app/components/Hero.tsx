@@ -1,219 +1,147 @@
 import { useEffect, useState } from 'react';
-import { Award, TrendingUp, Users, BookOpen, ChevronDown } from 'lucide-react';
+import { Award, TrendingUp, Users, BookOpen, ChevronRight, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 
-const BRAND = '#6269C9';
 
-const TYPING_WORDS = [
-  'IAS Officers',
-  'IPS Officers',
-  'IFS Officers',
-  'TNPSC Toppers',
-  'Civil Servants',
+const HERO_SLIDES = [
+  {
+    image: "https://images.unsplash.com/photo-1523240715630-341626359e19?q=80&w=1920",
+    title: "AIR 12 - UPSC 2024",
+    subtitle: "Our student makes us proud again.",
+    tag: "Success Story"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1920",
+    title: "New Batch Starts June 15",
+    subtitle: "Limited seats for UPSC & TNPSC Prelims 2026.",
+    tag: "Admissions Open"
+  },
+  {
+    image: "https://images.unsplash.com/photo-1524178232363-1fb28f74b671?q=80&w=1920",
+    title: "Free Mock Interview",
+    subtitle: "Guided by Retired IAS & IPS Officers.",
+    tag: "Exclusive"
+  }
 ];
 
-function TypingText() {
-  const [wordIdx, setWordIdx] = useState(0);
-  const [displayed, setDisplayed] = useState('');
-  const [deleting, setDeleting] = useState(false);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    const word = TYPING_WORDS[wordIdx];
-    if (paused) {
-      const t = setTimeout(() => { setDeleting(true); setPaused(false); }, 1800);
-      return () => clearTimeout(t);
-    }
-    if (!deleting) {
-      if (displayed.length < word.length) {
-        const t = setTimeout(() => setDisplayed(word.slice(0, displayed.length + 1)), 75);
-        return () => clearTimeout(t);
-      } else {
-        setPaused(true);
-      }
-    } else {
-      if (displayed.length > 0) {
-        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 40);
-        return () => clearTimeout(t);
-      } else {
-        setDeleting(false);
-        setWordIdx((i) => (i + 1) % TYPING_WORDS.length);
-      }
-    }
-  }, [displayed, deleting, paused, wordIdx]);
-
-  return (
-    <span className="inline-block" style={{ color: '#fbbf24', minWidth: '220px' }}>
-      {displayed}
-      <span className="animate-pulse">|</span>
-    </span>
-  );
-}
-
 const stats = [
-  { icon: Award, value: '500+', label: 'Total Selections' },
-  { icon: TrendingUp, value: '95%', label: 'Success Rate' },
-  { icon: Users, value: '50+', label: 'Expert Faculty' },
-  { icon: BookOpen, value: '25+', label: 'Years of Excellence' },
+  { icon: Award, value: '500+', label: 'IAS/IPS Selections' },
+  { icon: Users, value: '25k+', label: 'Aspirants Trained' },
+  { icon: Star, value: '23 Yrs', label: 'Legacy of Trust' },
+  { icon: BookOpen, value: '100%', label: 'Updated Material' },
 ];
 
 export function Hero() {
-  const [scrollY, setScrollY] = useState(0);
-  const [mounted, setMounted] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    setMounted(true);
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HERO_SLIDES.length);
+    }, 5000);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-    >
-      {/* Parallax Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1757390026877-5a5d8d0149f7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920)',
-          transform: `translateY(${scrollY * 0.4}px)`,
-          willChange: 'transform',
-        }}
-      />
-      {/* Multi-layer gradient overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'linear-gradient(135deg, rgba(40,48,160,0.88) 0%, rgba(98,105,201,0.75) 50%, rgba(40,48,160,0.88) 100%)',
-        }}
-      />
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
-
-      {/* Animated dot-grid overlay */}
-      <div
-        className="absolute inset-0 opacity-[0.07] pointer-events-none"
-        style={{
-          backgroundImage:
-            'radial-gradient(circle, #ffffff 1px, transparent 1px)',
-          backgroundSize: '40px 40px',
-        }}
-      />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 w-full">
-        {/* Badge */}
-        <div
-          className={`flex justify-center mb-6 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
-          style={{ transitionDelay: '100ms' }}
-        >
-          <span
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-white text-sm font-semibold border border-white/30 backdrop-blur-sm"
-            style={{ backgroundColor: 'rgba(255,255,255,0.12)' }}
-          >
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Tamil Nadu's Most Trusted IAS Coaching — Since 2001
-          </span>
-        </div>
-
-        {/* Headline */}
-        <div
-          className={`text-center mb-4 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '200ms' }}
-        >
-          <h1
-            className="text-white font-extrabold leading-tight"
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              fontSize: 'clamp(2.4rem, 5.5vw, 4.5rem)',
-              textShadow: '0 2px 20px rgba(0,0,0,0.3)',
-            }}
-          >
-            Dr. P. Annamalai IAS Academy
-          </h1>
-        </div>
-
-        {/* Tagline with typing */}
-        <div
-          className={`text-center mb-6 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '350ms', fontFamily: "'Inter', sans-serif" }}
-        >
-          <p className="text-xl md:text-2xl text-white/90 font-medium">
-            We Shape India's Next Generation of{' '}
-            <TypingText />
-          </p>
-        </div>
-
-        {/* Sub-tagline */}
-        <div
-          className={`text-center mb-10 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '500ms', fontFamily: "'Inter', sans-serif" }}
-        >
-          <p className="text-white/75 text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-            Expert coaching for UPSC, TNPSC, and all Civil Services examinations.
-            Personalised mentoring · Updated study materials · Proven results.
-          </p>
-        </div>
-
-        {/* CTA Buttons */}
-        <div
-          className={`flex flex-wrap justify-center gap-4 mb-16 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '650ms', fontFamily: "'Inter', sans-serif" }}
-        >
-          <Link
-            to="/contact"
-            className="group relative overflow-hidden px-8 py-3.5 rounded-xl font-bold text-base text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-0.5"
-            style={{ backgroundColor: '#fbbf24', color: '#1e1b4b' }}
-          >
-            <span className="relative z-10">Enrol Now — Free Counselling</span>
-            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-          </Link>
-          <Link
-            to="/resources"
-            className="group px-8 py-3.5 rounded-xl font-bold text-base text-white border-2 border-white/60 hover:border-white hover:bg-white/10 transition-all duration-300 hover:-translate-y-0.5"
-            style={{ fontFamily: "'Inter', sans-serif" }}
-          >
-            Explore Free Resources
-          </Link>
-        </div>
-
-        {/* Stats Bar */}
-        <div
-          className={`grid grid-cols-2 md:grid-cols-4 gap-4 transition-all duration-700 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ transitionDelay: '800ms' }}
-        >
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={i}
-                className="group relative rounded-2xl p-5 text-center border border-white/20 backdrop-blur-sm hover:border-white/50 hover:bg-white/15 transition-all duration-300 cursor-default"
-                style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
-              >
-                <div className="w-10 h-10 mx-auto mb-2 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform" style={{ backgroundColor: 'rgba(255,255,255,0.15)' }}>
-                  <Icon size={20} className="text-white" />
-                </div>
-                <div
-                  className="text-3xl font-extrabold text-white mb-0.5"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
-                >
-                  {stat.value}
-                </div>
-                <p className="text-white/75 text-xs font-medium uppercase tracking-wider">{stat.label}</p>
-              </div>
-            );
-          })}
-        </div>
+    <section className="relative min-h-screen bg-slate-50 flex items-center pt-2 overflow-hidden">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
+        <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-indigo-600 blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-amber-400 blur-[120px]" />
       </div>
 
-      {/* Scroll cue */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/60 text-xs">
-        <span style={{ fontFamily: "'Inter', sans-serif", letterSpacing: '0.1em' }}>SCROLL</span>
-        <ChevronDown size={18} className="animate-bounce" />
+      <div className="max-w-7xl mx-auto px-4 w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+        
+        {/* Left Side: Content */}
+        <motion.div 
+          initial={{ opacity: 0, x: -30 }} 
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-100 text-indigo-800 text-xs font-bold uppercase tracking-widest mb-6">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
+            </span>
+            Top Ranked Academy in South India
+          </div>
+
+          <h1 className="text-slate-900 font-extrabold leading-[1.1] mb-6" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
+            Empowering the <span className="text-indigo-600">Leaders</span> of Tomorrow’s India.
+          </h1>
+
+          <p className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed">
+            Join Dr. P. Annamalai IAS Academy. We provide precision-targeted coaching for UPSC & TNPSC, led by expert faculty and retired civil servants.
+          </p>
+
+          <div className="flex flex-wrap gap-4 mb-12">
+            <Link
+              to="/contact"
+              className="px-8 py-4 bg-indigo-600 text-white rounded-lg font-bold flex items-center gap-2 hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-200"
+            >
+              Start Your Journey <ChevronRight size={18} />
+            </Link>
+            <Link
+              to="/courses"
+              className="px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-bold hover:bg-slate-50 transition-all"
+            >
+              View Courses
+            </Link>
+          </div>
+
+          {/* Stats Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-200 pt-8">
+            {stats.map((stat, i) => (
+              <div key={i}>
+                <div className="text-2xl font-black text-slate-900">{stat.value}</div>
+                <div className="text-xs font-bold text-slate-500 uppercase tracking-tight">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right Side: The "Instagram Ad" Style Carousel */}
+        <div className="relative h-[500px] md:h-[600px] w-full group">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 rounded-3xl overflow-hidden shadow-2xl border-[8px] border-white"
+            >
+              {/* Image with Dark Overlay */}
+              <img 
+                src={HERO_SLIDES[currentSlide].image} 
+                alt="Academy Highlight" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-indigo-950/90 via-transparent to-transparent" />
+              
+              {/* Text Content in Poster */}
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <span className="bg-amber-400 text-indigo-950 px-3 py-1 rounded text-xs font-black uppercase mb-3 inline-block">
+                  {HERO_SLIDES[currentSlide].tag}
+                </span>
+                <h3 className="text-3xl font-bold mb-2">{HERO_SLIDES[currentSlide].title}</h3>
+                <p className="text-white/80">{HERO_SLIDES[currentSlide].subtitle}</p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Slider Indicators */}
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+            {HERO_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentSlide(i)}
+                className={`h-1.5 transition-all rounded-full ${currentSlide === i ? 'w-8 bg-indigo-600' : 'w-2 bg-slate-300'}`}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

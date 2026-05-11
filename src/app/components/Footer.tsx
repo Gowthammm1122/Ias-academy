@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Youtube } from 'lucide-react';
 import { Link } from 'react-router';
+import IASLogo from '../../images/IAS.png';
 
 const BRAND = '#6269C9';
 
@@ -12,8 +13,8 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-11 h-11 rounded-full flex items-center justify-center text-white font-extrabold text-xs shadow-md" style={{ backgroundColor: BRAND, fontFamily: "'Playfair Display', serif" }}>
-                DPA
+              <div className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 shadow-md" style={{ backgroundColor: BRAND }}>
+                <img src={IASLogo} alt="IAS Academy Logo" className="w-8 h-8 object-contain drop-shadow-sm" />
               </div>
               <div>
                 <p className="font-extrabold text-base leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Dr P. Annamalai</p>

@@ -1,6 +1,7 @@
 import { Menu, Phone, Mail, MapPin, X, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
+import IASLogo from '../../images/IAS.png';
 
 const BRAND = '#6269C9';
 
@@ -69,11 +70,8 @@ export function Header() {
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-extrabold text-sm flex-shrink-0 shadow-md"
-                style={{ backgroundColor: BRAND, fontFamily: "'Playfair Display', serif" }}
-              >
-                DPA
+              <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-md" style={{ backgroundColor: BRAND }}>
+                <img src={IASLogo} alt="IAS Academy Logo" className="w-10 h-10 object-contain drop-shadow-sm" />
               </div>
               <div>
                 <div

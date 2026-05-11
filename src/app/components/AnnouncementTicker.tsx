@@ -5,7 +5,6 @@ const BRAND = '#6269C9';
 const announcements = [
   '🎉 UPSC CSE 2025 Results: 48 Students Selected from Our Academy!',
   '📣 New Batch Starting June 2026 — UPSC Prelims & TNPSC Group I',
-  '🏆 Our Student Priya Venkat Secured AIR 28 in UPSC CSE 2025',
   '📚 Free Workshop: UPSC Strategy Session — Register Now',
   '🎓 TNPSC Group II Batch: Limited Seats Available — Enrol Today',
   '✅ Scholarship Test for TNPSC Aspirants — 50% to 80% Fee Waiver',

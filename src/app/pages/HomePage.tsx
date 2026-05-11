@@ -12,11 +12,10 @@ import { GalleryCarousel } from '../components/GalleryCarousel';
 export function HomePage() {
   return (
     <>
+     <AnnouncementTicker />
+    
       {/* Full-screen hero with parallax & typing animation */}
       <Hero />
-
-      {/* Scrolling news ticker below hero */}
-      <AnnouncementTicker />
 
       {/* About — slide-in reveal */}
       <AboutSection />
