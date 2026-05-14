@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router';
 import Poster2 from '../../images/poster2.png'
 import Poster1 from '../../images/poster1.png'
-import Poster3 from '../../images/poster1.png'
+import Poster3 from '../../images/poster3.png'
 
 
 const HERO_SLIDES = [
