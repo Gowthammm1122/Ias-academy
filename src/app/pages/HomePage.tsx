@@ -17,9 +17,6 @@ export function HomePage() {
       {/* Full-screen hero with parallax & typing animation */}
       <Hero />
 
-      {/* About — slide-in reveal */}
-      <AboutSection />
-
       {/* Why Choose Us — staggered card reveal */}
       <Features />
 

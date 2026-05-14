@@ -7,6 +7,7 @@ import { ContactPage } from './pages/ContactPage';
 import { EventGalleryPage } from './pages/EventGalleryPage';
 import { StudentPortalPage } from './pages/StudentPortalPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { CoursesPage } from './pages/CoursesPage';
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { path: "resources", Component: ResourcesPage },
       { path: "contact", Component: ContactPage },
       { path: "event-gallery", Component: EventGalleryPage },
+      { path: "courses", Component: CoursesPage },
       { path: "student-portal", Component: StudentPortalPage },
       { path: "*", Component: NotFoundPage },
     ],

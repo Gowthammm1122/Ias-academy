@@ -1,4 +1,4 @@
-import { Menu, Phone, Mail, MapPin, X, ChevronDown } from 'lucide-react';
+import { Menu, Phone, Mail, MapPin, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import IASLogo from '../../images/IAS.png';
@@ -8,16 +8,7 @@ const BRAND = '#6269C9';
 const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
-  {
-    label: 'Courses',
-    dropdown: [
-      { label: 'UPSC Prelims', to: '/#courses' },
-      { label: 'UPSC Mains', to: '/#courses' },
-      { label: 'TNPSC Group I', to: '/#courses' },
-      { label: 'Interview Guidance', to: '/#courses' },
-      { label: 'Test Series', to: '/#courses' },
-    ]
-  },
+  { label: 'Courses', to: '/courses' },
   { label: 'Resources', to: '/resources' },
   { label: 'Event Gallery', to: '/event-gallery' },
   { label: 'Contact', to: '/contact' },
@@ -25,7 +16,6 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   const isActive = (to: string) => {
@@ -82,56 +72,19 @@ export function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1" >
-              {navLinks.map((link) =>
-                link.dropdown ? (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(link.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
-                    <button
-                      className="flex items-center gap-1 px-3 py-2 text-sm font-semibold rounded-lg transition-all hover:bg-gray-50"
-                      style={{ color: openDropdown === link.label ? BRAND : '#374151' }}
-                    >
-                      {link.label}
-                      <ChevronDown
-                        size={14}
-                        className="transition-transform"
-                        style={{ transform: openDropdown === link.label ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                      />
-                    </button>
-                    {openDropdown === link.label && (
-                      <div className="absolute top-full left-0 mt-1 bg-white rounded-xl shadow-xl border border-gray-100 py-2 min-w-52 z-50">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.label}
-                            to={item.to}
-                            className="block px-4 py-2.5 text-sm text-gray-700 hover:text-white hover:pl-6 transition-all font-medium"
-                            style={{ transition: 'all 0.15s' }}
-                            onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = BRAND; e.currentTarget.style.color = '#fff'; }}
-                            onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = ''; e.currentTarget.style.color = ''; }}
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={link.to!}
-                    className="px-3 py-2 text-sm font-semibold rounded-lg transition-all hover:bg-gray-50"
-                    style={{ color: isActive(link.to!) ? BRAND : '#374151' }}
-                  >
-                    {link.label}
-                    {isActive(link.to!) && (
-                      <span className="block h-0.5 rounded-full mt-0.5" style={{ backgroundColor: BRAND }} />
-                    )}
-                  </Link>
-                )
-              )}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="px-3 py-2 text-sm font-semibold rounded-lg transition-all hover:bg-gray-50"
+                  style={{ color: isActive(link.to) ? BRAND : '#374151' }}
+                >
+                  {link.label}
+                  {isActive(link.to) && (
+                    <span className="block h-0.5 rounded-full mt-0.5" style={{ backgroundColor: BRAND }} />
+                  )}
+                </Link>
+              ))}
 
               {/* Student Portal CTA */}
               <Link
@@ -155,33 +108,17 @@ export function Header() {
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
             <nav className="lg:hidden pb-5 border-t border-gray-100 pt-3 flex flex-col gap-1" >
-              {navLinks.map((link) =>
-                link.dropdown ? (
-                  <div key={link.label}>
-                    <div className="px-3 py-2 font-semibold text-gray-500 text-xs uppercase tracking-widest">{link.label}</div>
-                    {link.dropdown.map((item) => (
-                      <Link
-                        key={item.label}
-                        to={item.to}
-                        className="block pl-6 py-2 text-sm text-gray-700 hover:text-purple-700 font-medium"
-                        onClick={() => setMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </Link>
-                    ))}
-                  </div>
-                ) : (
-                  <Link
-                    key={link.label}
-                    to={link.to!}
-                    className="px-3 py-2.5 text-sm font-semibold rounded-lg transition"
-                    style={{ color: isActive(link.to!) ? BRAND : '#374151', backgroundColor: isActive(link.to!) ? 'rgba(98,105,201,0.08)' : '' }}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                )
-              )}
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className="px-3 py-2.5 text-sm font-semibold rounded-lg transition"
+                  style={{ color: isActive(link.to) ? BRAND : '#374151', backgroundColor: isActive(link.to) ? 'rgba(98,105,201,0.08)' : '' }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
               <Link
                 to="/student-portal"
                 className="mt-2 mx-3 text-center text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 transition"
