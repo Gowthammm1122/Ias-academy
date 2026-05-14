@@ -6,7 +6,6 @@ import Poster2 from '../../images/poster2.png'
 import Poster1 from '../../images/poster1.png'
 import Poster3 from '../../images/poster3.png'
 
-
 const HERO_SLIDES = [
   {
     image: Poster1,
@@ -45,7 +44,6 @@ export function Hero() {
     return () => clearInterval(timer);
   }, []);
 
-  // Optimized variants for a continuous sliding effect
   const slideVariants = {
     enter: {
       x: '100%', // Use percentages for cleaner responsiveness
