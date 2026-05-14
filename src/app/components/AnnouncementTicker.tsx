@@ -17,7 +17,7 @@ export function AnnouncementTicker() {
   return (
     <div
       className="flex items-stretch overflow-hidden border-y border-white/10"
-      style={{ backgroundColor: BRAND, fontFamily: "'Inter', sans-serif" }}
+      style={{ backgroundColor: BRAND }}
     >
       {/* Label pill */}
       <div

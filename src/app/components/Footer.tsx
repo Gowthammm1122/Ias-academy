@@ -6,7 +6,7 @@ const BRAND = '#6269C9';
 
 export function Footer() {
   return (
-    <footer className="text-white pt-14 pb-6" style={{ backgroundColor: '#111827', fontFamily: "'Inter', sans-serif" }}>
+    <footer className="text-white pt-14 pb-6" style={{ backgroundColor: '#111827' }}>
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
 
@@ -17,7 +17,7 @@ export function Footer() {
                 <img src={IASLogo} alt="IAS Academy Logo" className="w-8 h-8 object-contain drop-shadow-sm" />
               </div>
               <div>
-                <p className="font-extrabold text-base leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>Dr P. Annamalai</p>
+                <p className="font-extrabold text-base leading-tight" >Dr P. Annamalai</p>
                 <p className="text-xs text-gray-400 font-medium">IAS Academy</p>
               </div>
             </div>

@@ -35,13 +35,7 @@ export function Header() {
 
   return (
     <>
-      {/* Google Fonts */}
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-      />
+
 
       {/* Top Info Bar */}
       <div className="text-white py-2 text-xs hidden md:block" style={{ backgroundColor: BRAND }}>
@@ -76,18 +70,18 @@ export function Header() {
               <div>
                 <div
                   className="font-extrabold text-xl leading-tight"
-                  style={{ color: BRAND, fontFamily: "'Playfair Display', serif" }}
+                  style={{ color: BRAND }}
                 >
                   Dr P. Annamalai IAS Academy
                 </div>
-                <p className="text-xs text-gray-500 font-medium tracking-wide" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-xs text-gray-500 font-medium tracking-wide" >
                   Excellence in Civil Services Preparation
                 </p>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <nav className="hidden lg:flex items-center gap-1" >
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div
@@ -143,7 +137,7 @@ export function Header() {
               <Link
                 to="/student-portal"
                 className="ml-2 text-white px-5 py-2 rounded-lg font-semibold text-sm transition hover:opacity-90 hover:shadow-lg shadow-md"
-                style={{ backgroundColor: BRAND, fontFamily: "'Inter', sans-serif" }}
+                style={{ backgroundColor: BRAND }}
               >
                 Student Portal
               </Link>
@@ -160,7 +154,7 @@ export function Header() {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <nav className="lg:hidden pb-5 border-t border-gray-100 pt-3 flex flex-col gap-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+            <nav className="lg:hidden pb-5 border-t border-gray-100 pt-3 flex flex-col gap-1" >
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div key={link.label}>

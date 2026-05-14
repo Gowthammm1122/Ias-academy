@@ -59,11 +59,11 @@ export function Courses() {
           ref={headRef}
           className={`text-center mb-16 transition-all duration-700 ${headVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>Structured Programmes</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>Structured Programmes</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Our Courses
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-gray-500 max-w-xl mx-auto text-base" >
             Specialised programmes designed to give you the edge at every stage of the civil services journey.
           </p>
           <div className="w-16 h-1 rounded-full mx-auto mt-4" style={{ backgroundColor: BRAND }} />
@@ -92,16 +92,16 @@ export function Courses() {
                   <span className="absolute top-4 right-4 text-xs font-bold px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-sm">
                     {course.badge}
                   </span>
-                  <h3 className="text-2xl font-extrabold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  <h3 className="text-2xl font-extrabold mb-2" >
                     {course.title}
                   </h3>
-                  <p className="text-white/85 text-sm leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <p className="text-white/85 text-sm leading-relaxed" >
                     {course.description}
                   </p>
                 </div>
 
                 {/* Body */}
-                <div className="p-6 flex flex-col flex-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <div className="p-6 flex flex-col flex-1" >
                   {/* Meta */}
                   <div className="space-y-2.5 mb-5">
                     <div className="flex items-center gap-2 text-gray-600 text-sm">
@@ -147,7 +147,7 @@ export function Courses() {
           <a
             href="/contact"
             className="inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 transition-all"
-            style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}
+            style={{ color: BRAND }}
           >
             Can't find your course? Talk to our counsellors <ArrowRight size={16} />
           </a>

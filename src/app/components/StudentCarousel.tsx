@@ -43,11 +43,11 @@ export function StudentCarousel() {
           ref={ref}
           className={`text-center mb-14 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>The Campus Experience</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>The Campus Experience</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Our Learning Environment
           </h2>
-          <p className="text-gray-500 text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-gray-500 text-base" >
             State-of-the-art facilities, engaged students, and a culture of disciplined excellence.
           </p>
           <div className="w-16 h-1 rounded-full mx-auto mt-4" style={{ backgroundColor: BRAND }} />
@@ -71,7 +71,7 @@ export function StudentCarousel() {
                   </div>
                   <div
                     className="text-white p-4 text-center font-semibold text-sm"
-                    style={{ backgroundColor: BRAND, fontFamily: "'Inter', sans-serif" }}
+                    style={{ backgroundColor: BRAND }}
                   >
                     {image.caption}
                   </div>

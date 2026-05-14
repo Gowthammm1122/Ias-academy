@@ -25,11 +25,11 @@ export function Faculty() {
           ref={headRef}
           className={`text-center mb-16 transition-all duration-700 ${headVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>The Experts</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>The Experts</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Our Esteemed Faculty
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-gray-500 max-w-xl mx-auto text-base" >
             Learn from former civil servants and academic experts who have walked the path themselves.
           </p>
           <div className="w-16 h-1 rounded-full mx-auto mt-4" style={{ backgroundColor: BRAND }} />
@@ -63,14 +63,14 @@ export function Faculty() {
 
                   {/* Initials overlay on hover */}
                   <div className="mb-1">
-                    <h3 className="text-xl font-bold text-gray-900" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    <h3 className="text-xl font-bold text-gray-900" >
                       {faculty.name}
                     </h3>
                   </div>
-                  <p className="text-sm font-semibold mb-1" style={{ color: faculty.color, fontFamily: "'Inter', sans-serif" }}>
+                  <p className="text-sm font-semibold mb-1" style={{ color: faculty.color }}>
                     {faculty.role}
                   </p>
-                  <p className="text-xs text-gray-500 mb-3" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <p className="text-xs text-gray-500 mb-3" >
                     {faculty.qualification}
                   </p>
 
@@ -85,7 +85,7 @@ export function Faculty() {
                   {/* Experience */}
                   <div
                     className="flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full border"
-                    style={{ color: faculty.color, borderColor: `${faculty.color}40`, backgroundColor: `${faculty.color}10`, fontFamily: "'Inter', sans-serif" }}
+                    style={{ color: faculty.color, borderColor: `${faculty.color}40`, backgroundColor: `${faculty.color}10` }}
                   >
                     {faculty.experience} of teaching
                   </div>
@@ -106,7 +106,7 @@ export function Faculty() {
           <a
             href="/about"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-xl text-white font-semibold text-sm hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-lg"
-            style={{ backgroundColor: BRAND, fontFamily: "'Inter', sans-serif" }}
+            style={{ backgroundColor: BRAND }}
           >
             Meet All Faculty <ExternalLink size={15} />
           </a>

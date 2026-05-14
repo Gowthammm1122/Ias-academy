@@ -60,8 +60,8 @@ export function SuccessCarousel() {
           <div className="flex justify-center gap-1 mb-4">
             {[...Array(5)].map((_, i) => <Star key={i} size={22} fill={BRAND} style={{ color: BRAND }} />)}
           </div>
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>Voices of Success</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>Voices of Success</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Student Testimonials
           </h2>
           <div className="w-16 h-1 rounded-full mx-auto" style={{ backgroundColor: BRAND }} />
@@ -87,8 +87,8 @@ export function SuccessCarousel() {
                   className="absolute bottom-6 left-6 text-white px-5 py-3 rounded-xl shadow-lg backdrop-blur-sm"
                   style={{ backgroundColor: 'rgba(98,105,201,0.9)' }}
                 >
-                  <p className="font-extrabold text-xl" style={{ fontFamily: "'Playfair Display', serif" }}>{t.rank}</p>
-                  <p className="text-white/85 text-xs font-semibold" style={{ fontFamily: "'Inter', sans-serif" }}>UPSC CSE {t.year} · {t.service}</p>
+                  <p className="font-extrabold text-xl" >{t.rank}</p>
+                  <p className="text-white/85 text-xs font-semibold" >UPSC CSE {t.year} · {t.service}</p>
                 </div>
               </div>
 
@@ -110,15 +110,15 @@ export function SuccessCarousel() {
 
               <blockquote
                 className="text-gray-700 text-xl leading-relaxed mb-8 italic font-medium"
-                style={{ fontFamily: "'Playfair Display', serif" }}
+                
                 key={`q-${current}`}
               >
                 "{t.quote}"
               </blockquote>
 
               <div className="mb-8">
-                <p className="text-gray-900 text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>{t.name}</p>
-                <p className="text-gray-500 text-sm mt-1" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-gray-900 text-xl font-bold" >{t.name}</p>
+                <p className="text-gray-500 text-sm mt-1" >
                   {t.service} Officer · UPSC CSE {t.year}
                 </p>
                 <div className="flex gap-1 mt-2">

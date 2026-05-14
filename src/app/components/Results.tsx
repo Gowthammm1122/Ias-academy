@@ -25,11 +25,11 @@ function StatCounter({ target, suffix, label, color, active }: { target: number;
     <div className="text-center group cursor-default">
       <div
         className="text-4xl md:text-5xl font-extrabold mb-2 transition-transform group-hover:scale-110 duration-300"
-        style={{ color, fontFamily: "'Playfair Display', serif" }}
+        style={{ color }}
       >
         {count}{suffix}
       </div>
-      <p className="text-gray-600 text-sm font-medium" style={{ fontFamily: "'Inter', sans-serif" }}>{label}</p>
+      <p className="text-gray-600 text-sm font-medium" >{label}</p>
     </div>
   );
 }
@@ -48,11 +48,11 @@ export function Results() {
           ref={headRef}
           className={`text-center mb-16 transition-all duration-700 ${headVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>Hall of Fame</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>Hall of Fame</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Our Success Stories
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-base" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-gray-500 max-w-xl mx-auto text-base" >
             Celebrating the achievers who worked hard and earned their place in India's finest civil services.
           </p>
           <div className="w-16 h-1 rounded-full mx-auto mt-4" style={{ backgroundColor: BRAND }} />
@@ -78,8 +78,8 @@ export function Results() {
 
                 <div className="flex items-start justify-between mb-4 relative">
                   <div>
-                    <h3 className="text-xl font-bold mb-0.5" style={{ fontFamily: "'Playfair Display', serif" }}>{topper.name}</h3>
-                    <p className="text-white/80 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    <h3 className="text-xl font-bold mb-0.5" >{topper.name}</h3>
+                    <p className="text-white/80 text-sm" >
                       {topper.service} · UPSC {topper.year}
                     </p>
                   </div>
@@ -89,7 +89,7 @@ export function Results() {
                 <div className="flex items-end justify-between relative">
                   <div
                     className="text-4xl font-extrabold"
-                    style={{ fontFamily: "'Playfair Display', serif", color: '#fbbf24' }}
+                    style={{ color: '#fbbf24' }}
                   >
                     {topper.rank}
                   </div>
@@ -121,7 +121,7 @@ export function Results() {
           <a
             href="/event-gallery"
             className="inline-flex items-center gap-2 px-8 py-3 rounded-xl text-white font-semibold text-sm hover:opacity-90 hover:-translate-y-0.5 transition-all shadow-lg"
-            style={{ backgroundColor: BRAND, fontFamily: "'Inter', sans-serif" }}
+            style={{ backgroundColor: BRAND }}
           >
             View All Success Stories <ArrowRight size={16} />
           </a>

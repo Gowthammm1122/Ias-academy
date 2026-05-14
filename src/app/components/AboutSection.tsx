@@ -33,8 +33,8 @@ export function AboutSection() {
           ref={headRef}
           className={`text-center mb-16 transition-all duration-700 ${headVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>Who We Are</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>Who We Are</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             About Dr. P. Annamalai IAS Academy
           </h2>
           <div className="w-16 h-1 rounded-full mx-auto" style={{ backgroundColor: BRAND }} />
@@ -46,9 +46,9 @@ export function AboutSection() {
           <div
             ref={leftRef}
             className={`transition-all duration-800 ${leftVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
-            style={{ fontFamily: "'Inter', sans-serif" }}
+            
           >
-            <h3 className="text-3xl font-extrabold mb-5" style={{ color: BRAND, fontFamily: "'Playfair Display', serif" }}>
+            <h3 className="text-3xl font-extrabold mb-5" style={{ color: BRAND }}>
               Excellence in Civil Services Coaching Since 2001
             </h3>
             <p className="text-gray-600 leading-relaxed mb-5 text-base">
@@ -103,7 +103,7 @@ export function AboutSection() {
                   >
                     <Icon size={24} style={{ color: BRAND }} />
                   </div>
-                  <div style={{ fontFamily: "'Inter', sans-serif" }}>
+                  <div >
                     <h4 className="font-bold text-gray-900 text-lg mb-1">{v.title}</h4>
                     <p className="text-gray-600 text-sm leading-relaxed">{v.text}</p>
                   </div>
@@ -119,10 +119,10 @@ export function AboutSection() {
           className={`rounded-2xl p-8 text-white text-center transition-all duration-700 ${cardsVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`}
           style={{ background: `linear-gradient(135deg, #4048a0, ${BRAND}, #7a81d9)` }}
         >
-          <p className="text-xl md:text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-xl md:text-2xl font-bold mb-2" >
             Ready to start your IAS journey?
           </p>
-          <p className="text-white/80 mb-6 text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>
+          <p className="text-white/80 mb-6 text-sm" >
             Talk to our expert counsellors today — free of charge.
           </p>
           <div className="flex flex-wrap justify-center gap-4">

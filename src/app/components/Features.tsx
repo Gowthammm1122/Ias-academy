@@ -27,8 +27,8 @@ export function Features() {
           ref={headRef}
           className={`text-center mb-16 transition-all duration-700 ${headVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
-          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND, fontFamily: "'Inter', sans-serif" }}>Why Students Choose Us</p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+          <p className="text-sm font-semibold uppercase tracking-widest mb-3" style={{ color: BRAND }}>Why Students Choose Us</p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4" >
             Why Choose Dr. P. Annamalai IAS Academy?
           </h2>
           <div className="w-16 h-1 rounded-full mx-auto" style={{ backgroundColor: BRAND }} />
@@ -61,11 +61,11 @@ export function Features() {
                 </div>
                 <h3
                   className="text-base font-bold text-gray-900 mb-2"
-                  style={{ fontFamily: "'Playfair Display', serif" }}
+                  
                 >
                   {feature.title}
                 </h3>
-                <p className="text-gray-600 text-sm leading-relaxed" style={{ fontFamily: "'Inter', sans-serif" }}>
+                <p className="text-gray-600 text-sm leading-relaxed" >
                   {feature.description}
                 </p>
 
