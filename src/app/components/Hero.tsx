@@ -5,6 +5,7 @@ import { Link } from 'react-router';
 import Poster2 from '../../images/poster2.png'
 import Poster1 from '../../images/poster1.png'
 import Poster3 from '../../images/poster3.png'
+import Poster4 from '../../images/poster4.png'
 
 const HERO_SLIDES = [
   {
@@ -24,6 +25,12 @@ const HERO_SLIDES = [
     title: "Free Mock Interview",
     subtitle: "Guided by Retired IAS & IPS Officers.",
     tag: "Exclusive"
+  },
+  {
+    image: Poster4,
+    title: "TNPSC Results",
+    subtitle: "415 + Selections",
+    tag: "Results"
   }
 ];
 

@@ -1,16 +1,25 @@
-import { Target, Eye, Award, GraduationCap, CheckCircle, Star, Users, BookOpen, Trophy } from 'lucide-react';
+import { Target, Eye, Award, GraduationCap, CheckCircle, Star, Users, BookOpen, Trophy, ShieldCheck, Compass, Zap } from 'lucide-react';
 
 const BRAND = '#6269C9';
 
 export function AboutPage() {
-  const milestones = [
-    { year: '2001', event: 'Academy Founded by Dr. P. Annamalai' },
-    { year: '2005', event: 'First batch produces 12 IAS/IPS Officers' },
-    { year: '2010', event: 'Expanded to state-of-the-art campus in Chennai' },
-    { year: '2015', event: 'Online learning platform launched' },
-    { year: '2018', event: 'Crossed 500+ total civil service selections' },
-    { year: '2022', event: 'TNPSC coaching centre of excellence recognition' },
-    { year: '2024', event: 'Pioneered AI-assisted personalised mentoring' },
+  // Professional Replacement Data for Timeline
+  const pillars = [
+    { 
+      icon: ShieldCheck, 
+      title: 'Proven Pedagogy', 
+      desc: 'Our curriculum is structured by experienced civil servants to translate massive competitive syllabus tracks into digestible, high-yield academic modules.' 
+    },
+    { 
+      icon: Compass, 
+      title: 'Adaptive Mentorship', 
+      desc: 'Moving beyond passive lecturing into micro-group monitoring and highly personalized progress tracking to optimize individual strengths.' 
+    },
+    { 
+      icon: Zap, 
+      title: 'Data-Driven Evaluations', 
+      desc: 'Rigorous routine testing paradigms designed to perfectly mirror UPSC & TNPSC standards, supported by automated metrics-based feedback.' 
+    }
   ];
 
   const values = [
@@ -121,40 +130,27 @@ export function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* NEW: Core Strategic Methodology Section (Replaces Old Timeline) */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-14">
-            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: BRAND }}>Our Journey</p>
-            <h2 className="text-4xl font-extrabold text-gray-900">Milestones &amp; Achievements</h2>
+            <p className="text-sm font-semibold uppercase tracking-widest mb-2" style={{ color: BRAND }}>Our Blueprint for Success</p>
+            <h2 className="text-4xl font-extrabold text-gray-900">The Pillars of Our Preparation</h2>
           </div>
-          <div className="relative">
-            {/* Central line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-gray-200"></div>
-            <div className="space-y-10">
-              {milestones.map((m, i) => (
-                <div key={i} className={`relative flex items-center ${i % 2 === 0 ? 'flex-row' : 'flex-row-reverse'} gap-8`}>
-                  <div className="flex-1 text-right">
-                    {i % 2 === 0 && (
-                      <div className="bg-white rounded-xl shadow-md p-5 inline-block text-left max-w-xs hover:shadow-lg transition">
-                        <span className="block text-sm font-bold mb-1" style={{ color: BRAND }}>{m.year}</span>
-                        <p className="text-gray-700 font-medium">{m.event}</p>
-                      </div>
-                    )}
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {pillars.map((pillar, i) => {
+              const Icon = pillar.icon;
+              return (
+                <div key={i} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5" style={{ backgroundColor: 'rgba(98,105,201,0.08)' }}>
+                    <Icon size={28} style={{ color: BRAND }} />
                   </div>
-                  {/* Dot */}
-                  <div className="absolute left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-white shadow-md z-10" style={{ backgroundColor: BRAND }}></div>
-                  <div className="flex-1">
-                    {i % 2 !== 0 && (
-                      <div className="bg-white rounded-xl shadow-md p-5 inline-block max-w-xs hover:shadow-lg transition">
-                        <span className="block text-sm font-bold mb-1" style={{ color: BRAND }}>{m.year}</span>
-                        <p className="text-gray-700 font-medium">{m.event}</p>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{pillar.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{pillar.desc}</p>
                 </div>
-              ))}
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
